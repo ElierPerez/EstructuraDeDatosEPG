@@ -1,0 +1,99 @@
+package practica;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Elier
+ */
+public class EstructurasLineales {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        //variable global
+        int opt = 0;
+        ArrayList <String> abc = new ArrayList <String>();
+
+//esta parte hacemos que al llenar empece desde la a
+       for (int a=0; a<27;a++)
+                    {
+                       abc.add("");
+                    }
+       
+        //menu
+        do {
+            System.out.println("1 - Llenar \n"
+                    + "2 - Mostrar \n"
+                    + "3 - Eliminar \n"
+                    + "4 - Salir \n");
+            //evaluamos opt para elegir un caso dentro del switch
+            switch (opt = sc.nextInt()) {
+                case 1:
+                    
+
+                    int a = 26, b = 0;
+                    char k ='a';
+                    
+                    //Nos agregara el abecedario automaticamente
+                   for (char c = 'a'; c <= 'z'; c++) {
+                        
+                     
+                        if(abc.get(a).equals("")){
+                   
+                    
+                    abc.set(a,String.valueOf(k));
+                    k++;
+                    b=1;
+                        
+                    }else{
+                        b=0;
+                    }
+                    a--;
+                    }
+                    if(b==0){
+                        System.out.println("Pila llena");
+                    }else{
+                    System.out.println("\n Valores agregados.");
+                    }
+                    break;
+
+                case 2:
+                    
+                    int n=0;
+                    //Se mostrara el abecedario
+                   
+                    for (a=0;a<abc.size();a++) //numero de caracteres
+                    
+                    {
+                        if(abc.get(a).equals("")){
+                            n++;
+                        }else { 
+                            System.out.print(abc.get(a)); //get es para traer el dato de la posicion que busco
+                        }
+                        
+                    }
+                    if (n==27){
+                        System.out.println("Pila vacia...");
+                    }
+                    System.out.println("");
+            
+                    break;
+                    
+                
+                case 3:
+
+                    //Agrego la condicion for y le agrego cuantos caracteres a eliminar
+                    
+                    for (a=0; a<10;a++)
+                    {
+                        abc.set(a, "");
+                    }
+                    System.out.println("Dato eliminado...");
+            
+                   
+                    break;
+            }
+        } while (opt != 4);
+    }
+}
