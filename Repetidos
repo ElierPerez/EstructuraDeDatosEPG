@@ -70,7 +70,7 @@ public class pilab {
                         }  
                       //Compara si hay letras por contar, si no hay letras no mostrara
                       if(contador!=0){                          
-                        System.out.println("la letra "+compara+" hay "+contador+"\n");
+                        System.out.println("la letra "+compara+" aparece "+contador+" veces.\n");
                       }
                       contador=0; //vuelve a recorrer la letra siguiente
                       
