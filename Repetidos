@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+/**
+ *
+ * @author Elier
+ */
+public class pilab {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int tope = 0, opt = 0;
+        
+        //menu 
+        char[] pila = new char[26];
+        do {
+            System.out.println("\n1 - Llenar\n"
+                    + "2 - Eliminar\n"
+                    + "3 - Mostrar\n"
+                    + "4 - Repetidos\n"
+                    + "5 - Salir\n"
+                    );
+            switch (opt = sc.nextInt()) {
+                case 1:
+                      for(int i=0; i<26; i++){
+                     char c = (char)(Math.random()*26+'A'); // nos dara los caracteres aletoriamente
+                   
+                        if (tope < 26) {
+                            pila[tope] = c;//abc[i];
+                            c++;
+                            tope++;
+                        } else {
+                            System.out.println("pila llena....");
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    if (tope > 0) {
+                        System.out.println("dato eliminado..."
+                                + tope);
+                        //restar unidad a tope, para poder reutilizarla posicion
+                        tope--;
+                    } else {
+                        System.out.println("no hay elementos para eliminar....");
+                    }
+                    break;
+                case 3:
+                    if (tope > 0) {
+                        for (int i = tope - 1; i >= 0; i--) {
+                            System.out.print(" " + pila[i]);
+                        }
+                    } else {
+                        System.out.println("pila vacia....");
+                    }
+                    break;
+                case 4:
+                    //agregamos variables
+                    int contador=0;
+                    String letra ="", compara ="";
+                    
+                    for(char j='A'; j<'Z';j++) { //Recorre las letras
+                    
+                      for(int i=0; i<pila.length; i++){ 
+                        
+                            letra=String.valueOf(pila[i]);
+                            compara = String.valueOf(j);
+                            if(letra.equals(compara)){
+                                contador++;
+                            }
+                        }  
+                      //Compara si hay letras por contar, si no hay letras no mostrara
+                      if(contador!=0){                          
+                        System.out.println("la letra "+compara+" hay "+contador+"\n");
+                      }
+                      contador=0; //vuelve a recorrer la letra siguiente
+                      
+                    }
+                  
+            }
+        } while (opt != 5);
+    }
+}
