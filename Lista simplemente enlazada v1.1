@@ -1,0 +1,58 @@
+package lista;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author LirTecK
+ */
+public class Lista {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+       
+        ArrayList <String> listita2 = new ArrayList<String>();
+        
+        
+        Scanner sc=new Scanner (System.in);
+        int opcion=0, el = 0;
+        
+       /* System.out.println("1- Add"
+                     + "2- show"
+                     + "3- Exit");
+        
+                opcion = sc.nextInt(); */
+        while(opcion!=3){
+              System.out.println("\n1- Add"
+                     + "\n2- show"
+                     + "\n3- Exit");
+         
+                opcion = Integer.parseInt(sc.nextLine());
+            switch(opcion){
+             
+            
+            case 1: {
+                System.out.println("Ingresa dato: ");
+                String patito = sc.nextLine();
+                listita2.add(patito);
+                break;
+            }
+            case 2:{
+              for (int i=0; i<listita2.size(); i++)
+              {
+                  System.out.println(listita2.get(i));
+
+              }
+                break;
+            }
+             case 3:{
+              opcion =3;  
+            }   
+            }
+        }
+    }
+}
