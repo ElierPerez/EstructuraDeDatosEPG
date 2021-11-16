@@ -1,0 +1,124 @@
+package nodos;
+
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ *
+ * @author LirTecK
+ */
+public class Generar {
+        
+    static class Nodo{
+        String Nombre;
+        Nodo sig;
+    }
+    public static void mostrar(String name, Nodo next){
+        System.out.println(name+" ");
+        while(next != null){
+            System.out.print(next.Nombre + " ");
+            next = next.sig;
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int opt=0;
+        Nodo inicio = null;
+        Nodo temp = null;
+        Nodo al=null;
+        Nodo alf=null;
+        Nodo alfa=null;
+        Scanner sc= new Scanner(System.in);
+        Random random = new Random();
+        do{
+        System.out.println("\n1.- Generar"
+                + "\n2.- Mostrar"
+                + "\n3.- Salir");
+        
+        switch(opt=sc.nextInt()){
+         //se crea una variable llamada "inicio" de tipo Nodo, sus valores son nulos, no se han inicializado
+        
+        case 1:
+           
+        inicio = new Nodo(); //asisgnamos a la variable inicio los atributos de la clase Nodo(), estos serian "nombre" y "sig"
+        int espec = random.nextInt(15 + 1) + 32;  
+        String c= Character.toString(espec);
+        inicio.Nombre= c; //en el campo "nombre" asignamos la informacion "A" o lo que desee agregar el usuario.
+        inicio.sig=null;  //el campo "sig" al ser el primer nodo el valor sera null
+        boolean valida=true;
+        
+        int al1=0;
+        int al2=0;
+        int al3=0;
+        
+        
+       while (valida) {
+           al1 = random.nextInt(74 + 1) + 47 ;
+           if (al1>48 && al1<57 || al1>65 && al1<90 || al1 >97 && al1<122){
+               valida=false;
+           }
+       }  
+        String A= Character.toString(al1);
+        al = new Nodo(); //asisgnamos a la variable temp los atributos de la clase Nodo(), estos serian "nombre" y "sig"
+        al.Nombre=A;//en el campo "nombre" asignamos la informacion "A" o lo que desee agregar el usuario.
+        al.sig=inicio;//el campo "sig" al ser el segundo o nodo N el valor de "sig", siempre apuntara a "inicio"
+        inicio=al;
+        
+        
+        while (valida) {
+           al2 = random.nextInt(74 + 1) + 47 ;
+           if (al2>48 && al2<57 || al2>65 && al2<90 || al2 >97 && al2<122){
+               valida=false;}
+        }
+        al2 = random.nextInt(74 + 1) + 47 ;  
+        String B= Character.toString(al2);
+        alf = new Nodo(); //asisgnamos a la variable temp los atributos de la clase Nodo(), estos serian "nombre" y "sig"
+        alf.Nombre=B;//en el campo "nombre" asignamos la informacion "A" o lo que desee agregar el usuario.
+        alf.sig=inicio;//el campo "sig" al ser el segundo o nodo N el valor de "sig", siempre apuntara a "inicio"
+        inicio=alf;
+       
+       
+        while (valida) {
+           al3 = random.nextInt(74 + 1) + 47 ;
+           if (al3>48 && al3<57 || al3>65 && al3<90 || al3 >97 && al3<122){
+               valida=false;}
+        }
+        al3 = random.nextInt(74 + 1) + 47 ;  
+        String C= Character.toString(al3);
+        alfa = new Nodo(); //asisgnamos a la variable temp los atributos de la clase Nodo(), estos serian "nombre" y "sig"
+        alfa.Nombre=C;//en el campo "nombre" asignamos la informacion "A" o lo que desee agregar el usuario.
+        alfa.sig=inicio;//el campo "sig" al ser el segundo o nodo N el valor de "sig", siempre apuntara a "inicio"
+        inicio=alfa;
+        
+        
+        int mayus = random.nextInt(25 + 1) + 65;  
+        String m= Character.toString(mayus);    
+        temp = new Nodo(); //asisgnamos a la variable temp los atributos de la clase Nodo(), estos serian "nombre" y "sig"
+        temp.Nombre=m;//en el campo "nombre" asignamos la informacion "A" o lo que desee agregar el usuario.
+        temp.sig=inicio;//el campo "sig" al ser el segundo o nodo N el valor de "sig", siempre apuntara a "inicio"
+        inicio=temp; // el nodo inicio siempre apunt a temp, cuando se agrega un nodo atras en la lista.
+        //mostrar("\ncaso 2", inicio);
+            
+       System.out.println("Se agregaron los nodos");
+                  
+        break;
+
+        
+        case 2:
+        if(inicio!=null){
+            mostrar(" ",inicio);
+        }else{
+            System.out.println("Palabra Vacia");
+        }
+        break;
+       
+    }
+    
+} while(opt!=3);
+}
+}
